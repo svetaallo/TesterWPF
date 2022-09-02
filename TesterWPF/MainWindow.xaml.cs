@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,20 @@ namespace TesterWPF
         public MainWindow()
         {
             InitializeComponent();
+            Card card = new Card("Да?", "Пизда");
+            textBlock.Text = card.ToString();
+
         }
 
         private void Botton_Click(object sender, RoutedEventArgs e)
         {
-            string text = textBox1.Text;
-            if(text != "")
-                MessageBox.Show(text);
         }
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Previous_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
