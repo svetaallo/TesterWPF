@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace TesterWPF
 {
-    class Card
+    class Card: DependencyObject
     {
-        public string Question { get; set; }
-        public string CorrectAnswer { get; set; }
-        public Card(string question, string corretAnswer)
+        public static readonly DependencyProperty QuestionProperty;
+
+        public static readonly DependencyProperty CorrectAnswerProperty;
+        public List <(string, bool)> Answers { get; set; }
+        static Card()
         {
-            Question = question;
-            CorrectAnswer = corretAnswer;
+            QuestionProperty = DependencyProperty.Register("Question", typeof(string), typeof(Card));
+            CorrectAnswerProperty = DependencyProperty.Register("CorrectAnswer", typeof(string), typeof(Card));
+        }
+        public string Question
+        {
+            get { return (string)GetValue(QuestionProperty); }
+            set { SetValue(QuestionProperty, value); }
+        }
+        public string CorrectAnswer
+        {
+            get { return (string)GetValue(CorrectAnswerProperty); }
+            set { SetValue(CorrectAnswerProperty, value); }
         }
         public override string ToString()
         {

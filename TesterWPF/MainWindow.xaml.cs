@@ -24,9 +24,6 @@ namespace TesterWPF
         public MainWindow()
         {
             InitializeComponent();
-            Card card = new Card("Да?", "Пизда");
-            textBlock.Text = card.ToString();
-
         }
 
         private void Botton_Click(object sender, RoutedEventArgs e)
