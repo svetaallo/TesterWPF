@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using TesterWPF.Models;
+using TesterWPF.Views;
 
 namespace TesterWPF
 {
@@ -13,5 +15,6 @@ namespace TesterWPF
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
