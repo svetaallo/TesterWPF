@@ -23,5 +23,13 @@ namespace TesterWPF.ViewModels
         void AddView()
         {
         }
+        private DelegateCommand _startSession;
+        public DelegateCommand StartSessionCmd =>
+            _startSession ?? (_startSession = new DelegateCommand(StartSession));
+        void StartSession()
+        {
+            var newSession = new Session();
+
+        }
     }
 }

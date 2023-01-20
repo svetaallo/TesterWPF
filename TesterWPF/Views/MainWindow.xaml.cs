@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TesterWPF.ViewModels;
+using TesterWPF.Models;
 
 namespace TesterWPF.Views
 {
@@ -27,11 +28,12 @@ namespace TesterWPF.Views
             InitializeComponent();
         }
 
-        //private void Botton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    TestWindow testWindow = new TestWindow();
-        //    testWindow.Show();
-        //}
+        private void Botton_Click(object sender, RoutedEventArgs e)
+        {
+            var session = new Session();
+            TestWindow testWindow = new TestWindow();
+            testWindow.Show();
+        }
         //private void Add_Click(object sender, RoutedEventArgs e)
         //{
         //    using (ApplicationContext db = new ApplicationContext())

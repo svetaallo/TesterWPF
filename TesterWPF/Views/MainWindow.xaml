@@ -32,7 +32,7 @@
             <ComboBoxItem>English</ComboBoxItem>
         </ComboBox>
 
-        <Button x:Name="start" FontSize="30" Content="начать" Width="150" Height="50" VerticalAlignment="Bottom" Margin="275,0,375,70"/>
+        <Button x:Name="start" FontSize="30" Content="начать" Width="150" Height="50" Command="{Binding StartSessionCmd}" VerticalAlignment="Bottom" Margin="275,0,375,70"/>
         <Button x:Name="addCard" Width="50" Height="50" VerticalAlignment="Bottom"  Margin="180,0,30,70" Command="{Binding AdditionViewCmd}">
             <Button.Content>
                 <Image Source="Images\plus.png" />
