@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("TestProject1")]
 
 namespace TesterWPF.Models
 {
-    internal class Session
+    public class Session
     {
         string path = "content.txt";
         public int Day { get; set; }
@@ -23,9 +26,8 @@ namespace TesterWPF.Models
             {
                 File.WriteAllText(path, @"0");
             }
-            Day = Int32.Parse(File.ReadAllText(path))%10;
+            Day = Int32.Parse(File.ReadAllText(path)) % 10;
             QueueId = GenerateQueueId(Day);
-            Console.WriteLine(QueueId);
         }
         ~Session()
         {
