@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("TestProject1")]
 
 namespace TesterWPF.Models
 {
-    internal class Session
+    public class Session
     {
         string path = "content.txt";
         public int Day { get; set; }
-
-        public int[] QueueId { get; set; }
+        public string QueueId { get; set; }
         public List<Card> CurrentQueue { get; }
         public Session()
         {
@@ -24,31 +26,26 @@ namespace TesterWPF.Models
             {
                 File.WriteAllText(path, @"0");
             }
-            Day = Int32.Parse(File.ReadAllText(path));
-            if (Day >= 9)
-                Day = 0;
-            //сделать метод для заполнения номера очереди
-            QueueId = new int[4];
-            QueueId[0] = Day;
-        }
-
-        private int[] GenerateQueueId(int first)  
-        {
-            var queueId = new int[4];
-            int step = 1;
-            int dif = first;
-            for (var i=0;i<queueId.Length;i++) //кудрявое условие, можно распутать?
-            {
-                step++;
-                first = (first + step) / 10;
-                queueId[i] = first;
-                
-            }
-            return queueId;
+            Day = Int32.Parse(File.ReadAllText(path)) % 10;
+            QueueId = GenerateQueueId(Day);
         }
         ~Session()
         {
             File.WriteAllText(path, (++Day).ToString());
+        }
+
+        public static string GenerateQueueId(int first)  //протестила, может отрефакторим?
+        {
+            var queueId = first.ToString();
+            int step = 2;
+            int nextNum = first;
+            for (var i=0;i<3;i++,step++)
+            {
+                nextNum = (first + step) % 10;
+                first = nextNum;
+                queueId += nextNum.ToString();
+            }
+            return queueId;
         }
     }
 }
