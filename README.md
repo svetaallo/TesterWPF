@@ -8,3 +8,5 @@ Welcome to my new learning App! *AppName* is based on concepts of a spaced repet
 - [ ] Statistics
 - [ ] Mobile App
 - [ ] cute :sparkling_heart:DeSiGn:sparkling_heart:
+
+[GoogleDoc file with notes](https://docs.google.com/document/d/160Ogi0gNS-p8ijwjypfWf4I5Co_ERZ3o0pOtzqKBYsc/edit?usp=sharing)
