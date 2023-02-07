@@ -34,26 +34,5 @@ namespace TesterWPF.Views
             TestWindow testWindow = new TestWindow();
             testWindow.Show();
         }
-        //private void Add_Click(object sender, RoutedEventArgs e)
-        //{
-        //    using (ApplicationContext db = new ApplicationContext())
-        //    {
-        //        // создаем два объекта User
-        //        Card newCard = new Card { Question = "?", CorrectAnswer = "!", Theme="прога" };
-
-        //        // добавляем их в бд
-        //        db.Cards.Add(newCard);
-        //        db.SaveChanges();
-        //        Console.WriteLine("Объекты успешно сохранены");
-
-        //        // получаем объекты из бд и выводим на консоль
-        //        var cards = db.Cards.ToList();
-        //        Console.WriteLine("Список объектов:");
-        //        foreach (Card u in cards)
-        //        {
-        //            Console.WriteLine($"{u.Id}.{u.Question} - {u.CorrectAnswer} - {u.Theme}");
-        //        }
-        //    }
-        //}
     }
 }

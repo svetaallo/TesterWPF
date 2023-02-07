@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TesterWPF.Views"
+        xmlns:models="clr-namespace:TesterWPF"
         mc:Ignorable="d"
         Title="AddCard" Height="450" Width="800">
-    <Grid>
-        <TextBlock Text="HELLO YOPTA"/>
-    </Grid>
+    <StackPanel x:Name="stack" Background="Honeydew">
+        <TextBlock x:Name="textBlock" Width="600" Height="200" VerticalAlignment="Center" Margin="20" FontSize="22" Text="Добавление новой карточки"/>
+        <TextBox x:Name="enterQuestion" Text="Введите вопрос" Width="300" Height="22"/>
+        <TextBox x:Name="enterAnswer" Text="Введите ответ" Width="300" Height="22"/>
+        <Button x:Name="buttonCheck" Content="Спаси и сохрани" FontSize="22" Width="250" Height="60" Click="Botton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
+    </StackPanel>
 </Window>
