@@ -1,10 +1,4 @@
-﻿using TesterWPF.Models;
-using Prism.Commands;
-using TesterWPF.ViewModels.Base;
-using Microsoft.VisualBasic;
-using System.Windows.Input;
-using System.Windows;
-using System;
+﻿using TesterWPF.ViewModels.Base;
 using TesterWPF.Infrastructure.Commands;
 
 namespace TesterWPF.ViewModels
@@ -34,8 +28,5 @@ namespace TesterWPF.ViewModels
             //#endregion
 
         }
-
-
-
     }
 }

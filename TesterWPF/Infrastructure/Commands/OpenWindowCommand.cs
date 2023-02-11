@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TesterWPF.Infrastructure.Commands.Base;
+using TesterWPF.Views;
 
 namespace TesterWPF.Infrastructure.Commands
 {
@@ -9,7 +10,8 @@ namespace TesterWPF.Infrastructure.Commands
 
         public override void Execute(object parameter)
         {
-            Application.Current.Shutdown();
+            var addCardWindow = new AddCard();
+            addCardWindow.Show();
         }
     }
 }
