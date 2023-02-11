@@ -27,12 +27,5 @@ namespace TesterWPF.Views
         {
             InitializeComponent();
         }
-
-        private void Botton_Click(object sender, RoutedEventArgs e)
-        {
-            var session = new Session();
-            TestWindow testWindow = new TestWindow();
-            testWindow.Show();
-        }
     }
 }

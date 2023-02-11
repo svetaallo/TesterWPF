@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesterWPF", "TesterWPF\TesterWPF.csproj", "{E5C3C01A-D149-4B50-9130-3453B917F36D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestorizerTests", "TestorizerTests\TestorizerTests.csproj", "{013B6AE7-8585-46F7-8493-6AAE038123C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestorizerTests", "TestorizerTests\TestorizerTests.csproj", "{013B6AE7-8585-46F7-8493-6AAE038123C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMlearn", "..\MVVMlearn\MVVMlearn\MVVMlearn.csproj", "{BF413329-A61E-4A77-9B26-301D8D04B5AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{013B6AE7-8585-46F7-8493-6AAE038123C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{013B6AE7-8585-46F7-8493-6AAE038123C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{013B6AE7-8585-46F7-8493-6AAE038123C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF413329-A61E-4A77-9B26-301D8D04B5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF413329-A61E-4A77-9B26-301D8D04B5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF413329-A61E-4A77-9B26-301D8D04B5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF413329-A61E-4A77-9B26-301D8D04B5AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,11 @@
 ﻿using TesterWPF.Models;
 using Prism.Commands;
 using TesterWPF.ViewModels.Base;
+using Microsoft.VisualBasic;
+using System.Windows.Input;
+using System.Windows;
+using System;
+using TesterWPF.Infrastructure.Commands;
 
 namespace TesterWPF.ViewModels
 {
@@ -9,27 +14,28 @@ namespace TesterWPF.ViewModels
         private int amountLearned = 100;
         public int AmounrLeaened { get { return amountLearned; } }
 
-        private string _Title;
-        public string Title
-        {
-            get => _Title;
-            set => Set(ref _Title, value);
-        }
+        //#region Commands
+        //public ICommand OpenWindowCommand { get; }
 
-        private DelegateCommand _addView;
-        public DelegateCommand AddViewCmd =>
-            _addView ?? (_addView = new DelegateCommand(AddView));
+        //#region OpenWindowCommand
+        //public bool CanOpenWindowCommandExecute(object p) => true;
 
-        void AddView()
+        //public void OnOpenWindowCommandExecuted(object p)
+        //{
+        //    Application.Current.Shutdown();
+        //}
+        //#endregion
+
+        //#endregion
+        public MainViewModel()
         {
-        }
-        private DelegateCommand _startSession;
-        public DelegateCommand StartSessionCmd =>
-            _startSession ?? (_startSession = new DelegateCommand(StartSession));
-        void StartSession()
-        {
-            var newSession = new Session();
+            //#region Команды
+            //OpenWindowCommand = new RelayCommand(OnOpenWindowCommandExecuted, CanOpenWindowCommandExecute);
+            //#endregion
 
         }
+
+
+
     }
 }
