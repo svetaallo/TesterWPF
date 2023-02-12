@@ -11,6 +11,7 @@ namespace TesterWPF.Views
         public AddCard()
         {
             InitializeComponent();
+            // this.Parent =
             DataContext = new AddCardViewModel();
         }
         public bool? Open()

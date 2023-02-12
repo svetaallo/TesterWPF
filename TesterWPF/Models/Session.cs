@@ -14,13 +14,13 @@ namespace TesterWPF.Models
     {
         string path = "content.txt";
         public int Day { get; set; }
-        public string QueueId { get; set; }
-        public List<Card> CurrentQueue { get; }
+        public string QueueId { get; set; }// будет вызываться при добавлении новой карточки
+        public List<Card> CardsToRepeat { get; }
         public Session()
         {
             using(ApplicationContext db = new ApplicationContext())
             {
-                CurrentQueue = db.Cards.ToList();// загружает пока что всю базу данных, а надо определенную
+                CardsToRepeat = db.Cards.ToList();// загружает пока что всю базу данных, а надо определенную
             }
             if (!File.Exists(path))
             {
@@ -34,7 +34,7 @@ namespace TesterWPF.Models
             File.WriteAllText(path, (++Day).ToString());
         }
 
-        public static string GenerateQueueId(int first)  //протестила, может отрефакторим?
+        public static string GenerateQueueId(int first)//протестила, может отрефакторим?
         {
             var queueId = first.ToString();
             int step = 2;
