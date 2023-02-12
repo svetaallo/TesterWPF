@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:TesterWPF.Views"
         xmlns:vm="clr-namespace:TesterWPF.ViewModels"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800">
+        Title="" Height="450" Width="800"
+        x:Name="addCardWindow">
     <Window.DataContext>
         <vm:AddCardViewModel/>
     </Window.DataContext>
     <Grid x:Name="stack" Background="Honeydew">
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions> 
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -28,6 +29,6 @@
         <TextBlock x:Name="eneterA" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Width="150" Height="22" Text="Введите ответ:"/>
         <TextBox x:Name="enterQuestion" Grid.Row="1" Grid.Column="1" Width="300" Height="75" HorizontalAlignment="Left" Text="{Binding Question, Mode=TwoWay}"/>
         <TextBox x:Name="enterAnswer" Grid.Row="2" Grid.Column="1" Width="300" Height="75" HorizontalAlignment="Left" Text="{Binding Answer, Mode=TwoWay}"/>
-        <Button x:Name="buttonCheck" Grid.Row="3" Grid.ColumnSpan="2" Content="Спаси и сохрани" FontSize="22" Width="250" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Command="{Binding AddNewCardCommand}"/>
+        <Button x:Name="buttonCheck" Grid.Row="3" Grid.ColumnSpan="2" Content="Спаси и сохрани" FontSize="22" Width="250" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Command="{Binding AddNewCardCommand}" CommandParameter="{Binding ElementName=addCardWindow, Mode=OneWay}" />
     </Grid>
 </Window>

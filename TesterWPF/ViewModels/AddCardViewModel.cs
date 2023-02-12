@@ -13,16 +13,17 @@ namespace TesterWPF.ViewModels
         #region Commands
         public ICommand AddNewCardCommand { get; }
         #region AddNewCardCommand
-        public bool CanAddNewCardCommandExecute(object p) => true;
+        public bool CanAddNewCardCommandExecute(object parametr) => true;
 
-        public void OnAddNewCardCommandExecuted(object p)
+        public void OnAddNewCardCommandExecuted(object parametr)
         {
             var addedCard= new Card(Question, Answer);
             //сюда сохранение в БД
-            
+            addedCard.SaveToBase();
+            Window window = parametr as Window;
+            window?.Close();
         }
         #endregion
-
         #endregion
         public AddCardViewModel()
         {

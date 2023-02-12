@@ -1,9 +1,10 @@
 ﻿
+using TesterWPF.Views;
+
 namespace TesterWPF.Models
 {
     public class Card
     {
-        //сделать добавление карточки в БД
         public int Id { get; set; }
         public string QueueNumber { get; set; }
         public string Question { get; set; }
@@ -19,9 +20,14 @@ namespace TesterWPF.Models
             QueueNumber = "current";
             Question = question;
             CorrectAnswer = correctAnswer;
+        }
+
+        public void SaveToBase()//сделать сохранение в базу, нужно передавать базу как параметр
+        {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.Cards.Add(this);
+                db.Add(this);
+                db.SaveChanges();
             }
         }
     }

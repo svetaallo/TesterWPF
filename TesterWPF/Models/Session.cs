@@ -34,7 +34,7 @@ namespace TesterWPF.Models
             File.WriteAllText(path, (++Day).ToString());
         }
 
-        public static string GenerateQueueId(int first)  //протестила, может отрефакторим?
+        public static string GenerateQueueId(int first)//протестила, может отрефакторим?
         {
             var queueId = first.ToString();
             int step = 2;
