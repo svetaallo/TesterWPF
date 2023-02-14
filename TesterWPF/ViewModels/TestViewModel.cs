@@ -1,12 +1,18 @@
-﻿using System;
+﻿using TesterWPF.ViewModels.Base;
+using TesterWPF.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace TesterWPF.ViewModels
 {
-    class TestViewModel
+    class TestViewModel: ViewModel
     {
+        public string CurrentQuestion { get; set; }
+        public string CurrentAnswer { get; set; }
+        public List<Card> SessionCards { get; }
+        public TestViewModel()
+        {
+            //var session = new Session();
+        }
     }
 }

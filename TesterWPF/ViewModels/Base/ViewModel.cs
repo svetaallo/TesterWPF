@@ -4,8 +4,9 @@ using System.Runtime.CompilerServices;
 namespace TesterWPF.ViewModels.Base
 {
     /*https://www.youtube.com/watch?v=6xkbRE4KvE0 объясняет эту херобору на 29 минуте*/
-    internal abstract class ViewModel : INotifyPropertyChanged
+    abstract internal class ViewModel : INotifyPropertyChanged
     {
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName]string PropertyName = null) 

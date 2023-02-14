@@ -18,7 +18,6 @@ namespace TesterWPF.ViewModels
         public void OnAddNewCardCommandExecuted(object parametr)
         {
             var addedCard= new Card(Question, Answer);
-            //сюда сохранение в БД
             addedCard.SaveToBase();
             Window window = parametr as Window;
             window?.Close();

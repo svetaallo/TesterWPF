@@ -6,21 +6,12 @@ namespace TesterWPF.Views
     /// <summary>
     /// Interaction logic for AddCard.xaml
     /// </summary>
-    public partial class AddCard : Window, IView
+    public partial class AddCardView
     {
-        public AddCard()
+        public AddCardView()
         {
             InitializeComponent();
-            // this.Parent =
             DataContext = new AddCardViewModel();
         }
-        public bool? Open()
-        {
-            return this.ShowDialog();
-        }
-    }
-    public interface IView
-    {
-        bool? Open();
     }
 }

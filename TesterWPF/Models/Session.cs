@@ -14,8 +14,9 @@ namespace TesterWPF.Models
     {
         string path = "content.txt";
         public int Day { get; set; }
-        public string QueueId { get; set; }// будет вызываться при добавлении новой карточки
+        public string QueueId { get; set; }
         public List<Card> CardsToRepeat { get; }
+
         public Session()
         {
             using(ApplicationContext db = new ApplicationContext())
@@ -33,7 +34,6 @@ namespace TesterWPF.Models
         {
             File.WriteAllText(path, (++Day).ToString());
         }
-
         public static string GenerateQueueId(int first)//протестила, может отрефакторим?
         {
             var queueId = first.ToString();
