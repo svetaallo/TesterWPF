@@ -16,5 +16,6 @@
             <v:AddCardView/>
         </DataTemplate>
         <vm:MainViewModel x:Key="mainViewModel"/>
+        <vm:MenuViewModel x:Key="menuViewModel"/>
     </Application.Resources>
 </Application>

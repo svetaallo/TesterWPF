@@ -5,14 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TesterWPF.Views"
         xmlns:vm="clr-namespace:TesterWPF.ViewModels"
+        xmlns:cmd="clr-namespace:TesterWPF.Infrastructure.Commands"
         mc:Ignorable="d"
-        Height="600" Width="900"
-        x:Name="testView">
+        Height="600" Width="900">
+    <UserControl.DataContext>
+        <vm:TestViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cmd:SetViewModelCommand x:Key="SetViewModelCommand"/>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock x:Name="textBlock" Width="600" Height="200" VerticalAlignment="Center" Margin="20" />
-        <Button x:Name="buttonCheck" Content="Check" FontSize="22" Width="70" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
+        <TextBlock x:Name="textBlock" Width="600" Height="200" VerticalAlignment="Center" Margin="20" Text="{Binding CurrentQuestion}"/>
+        <Button x:Name="showAnswer" Content="Show answer" FontSize="22" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
         <Button x:Name="buttonNext" Content=">" FontSize="22" Width="30" Height="60" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Bottom"/>
         <Button x:Name="buttonPrevious" Content="&lt;" FontSize="22" Width="30" Height="60" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="menu" Content="Меню" Width="70" Height="30" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="menu" Content="Меню" Width="70" Height="30" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{StaticResource SetViewModelCommand}" CommandParameter="{StaticResource menuViewModel}"/>
     </Grid>
 </UserControl>

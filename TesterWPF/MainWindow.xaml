@@ -10,7 +10,7 @@
         Height="600" Width="900"
         DataContext="{DynamicResource mainViewModel}">
     <Window.Resources>
-        
+        <cmd:SetViewModelCommand x:Key="SetViewModelCommand"/>
     </Window.Resources>
     <Grid>
         <ContentControl Content="{Binding SelectedViewModel}"/>

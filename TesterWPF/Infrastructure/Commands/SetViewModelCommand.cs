@@ -3,7 +3,7 @@ using System.Windows.Input;
 using TesterWPF.Infrastructure.Commands.Base;
 using TesterWPF.ViewModels.Base;
 using TesterWPF.ViewModels;
-//сделать бы это без копипаста
+
 namespace TesterWPF.Infrastructure.Commands
 {
     internal class SetViewModelCommand : Command
@@ -13,8 +13,8 @@ namespace TesterWPF.Infrastructure.Commands
         public override void Execute(object parameter)
         {
             var x = App.Current.Resources["mainViewModel"] as MainViewModel;
-            //var newViewModel = parameter as ViewModel;
-            x.SelectedViewModel = new AddCardViewModel();
+            var newViewModel = parameter as ViewModel;
+            x.SelectedViewModel = newViewModel;
         }
     }
 }

@@ -19,8 +19,7 @@ namespace TesterWPF.ViewModels
         {
             var addedCard= new Card(Question, Answer);
             addedCard.SaveToBase();
-            Window window = parametr as Window;
-            window?.Close();
+            App.Current.Resources["mainViewModel"] = new MainViewModel();
         }
         #endregion
         #endregion
