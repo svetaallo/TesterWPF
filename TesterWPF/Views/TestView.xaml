@@ -16,10 +16,16 @@
         <cmd:SetViewModelCommand x:Key="SetViewModelCommand"/>
     </UserControl.Resources>
     <Grid>
-        <TextBlock x:Name="textBlock" Width="600" Height="200" VerticalAlignment="Center" Margin="20" Text="{Binding CurrentQuestion}"/>
-        <Button x:Name="showAnswer" Content="Show answer" FontSize="22" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
-        <Button x:Name="buttonNext" Content=">" FontSize="22" Width="30" Height="60" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Bottom" Command="{Binding NextCardCommand}"/>
-        <Button x:Name="buttonPrevious" Content="&lt;" FontSize="22" Width="30" Height="60" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Bottom" Command="{Binding NextCardCommand}"/>
-        <Button x:Name="menu" Content="Меню" Width="70" Height="30" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{StaticResource SetViewModelCommand}" CommandParameter="{StaticResource menuViewModel}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="counter" Grid.Row="0" Width="20" Height="20" HorizontalAlignment="Left" Margin="20" Text="{Binding Counter}"/>
+        <TextBlock x:Name="textQuestion" Grid.Row="0" Width="600" Height="150" VerticalAlignment="Bottom" Margin="20" Text="{Binding CurrentQuestion}"/>
+        <TextBlock x:Name="textAnswer" Grid.Row="1" Width="600" Height="150" VerticalAlignment="Top" Margin="20" Text="{Binding CurrentAnswer}" Visibility="Hidden" />
+        <Button x:Name="showAnswer" Grid.Row="1" Content="Show answer" FontSize="22" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Command="{Binding ShowAnswerCommand}" CommandParameter="{Binding ElementName=textAnswer}"/>
+        <Button x:Name="buttonYes" Grid.Row="1" Content=">" FontSize="22" Width="30" Height="60" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Bottom" Command="{Binding NextCardCommand}" CommandParameter="{Binding ElementName=textAnswer}"/>
+        <Button x:Name="buttonNo" Grid.Row="1" Content="&lt;" FontSize="22" Width="30" Height="60" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Bottom" Command="{Binding NextCardCommand}" CommandParameter="{Binding ElementName=textAnswer}"/>
+        <Button x:Name="menu" Grid.Row="0" Content="Меню" Width="70" Height="30" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{StaticResource SetViewModelCommand}" CommandParameter="{StaticResource menuViewModel}"/>
     </Grid>
 </UserControl>

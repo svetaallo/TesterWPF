@@ -1,5 +1,6 @@
 ﻿using TesterWPF.ViewModels.Base;
 using TesterWPF.Models;
+using TesterWPF.Views;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,6 +10,7 @@ namespace TesterWPF.ViewModels
 {
     class TestViewModel: ViewModel
     {
+        public bool IsQuestionHidden { get; set; }
         private string _CurrentQuestion;
         public string CurrentQuestion 
         { 
@@ -29,7 +31,16 @@ namespace TesterWPF.ViewModels
                 OnPropertyChanged(nameof(CurrentAnswer));
             }
         }
-        private int counter = 0;
+        private int _Counter = 0;
+        public int Counter
+        {
+            get => _Counter;
+            set
+            {
+                _Counter = value;
+                OnPropertyChanged(nameof(Counter));
+            }
+        }
         private Card _CurrentCard;
         public Card CurrentCard
         {
@@ -43,16 +54,19 @@ namespace TesterWPF.ViewModels
             }
         }
         public List<Card> SessionCards { get; }
+
         #region Commands
+        #region NextCardCommand
         public ICommand NextCardCommand { get; }
-        #region AddNewCardCommand
         public bool CanNextCardCommandExecute(object parameter) => true;/*сюда прописать запрет на вызов команды, пока ответ не просмотрен*/
 
         public void OnNextCardCommandExecuted(object parameter)
         {
             /*вызов команды изменяющей ид карты в соответствии с ответом*/
-            if(counter < SessionCards.Count)
-                CurrentCard = SessionCards[counter++];
+            var x = parameter as TextBlock;
+            x.Visibility = System.Windows.Visibility.Hidden;
+            if(Counter < SessionCards.Count)
+                CurrentCard = SessionCards[Counter++];
             else
             {
                 SetViewModelCommand com = new SetViewModelCommand();
@@ -60,14 +74,29 @@ namespace TesterWPF.ViewModels
                 /*экран "карточки на сегодня закончились" вместо автоматического выхода в меню*/
             }
         }
+
+        public ICommand ShowAnswerCommand { get; }
+
+
+        #endregion
+        #region ShowAnswerCommand
+        public bool CanShowAnswerCommandExecute(object parameter) => true;/*сюда прописать запрет на вызов команды, пока ответ не просмотрен*/
+
+        public void OnShowAnswerCommandExecuted(object parameter)
+        {
+            var x = parameter as TextBlock;
+            x.Visibility = System.Windows.Visibility.Visible;
+        }
         #endregion
         #endregion
         public TestViewModel()
         {
             var session = new Session();
             SessionCards = session.CardsToRepeat;
+            IsQuestionHidden = true;
             CurrentCard = SessionCards[0];
             NextCardCommand = new RelayCommand(OnNextCardCommandExecuted, CanNextCardCommandExecute);
+            ShowAnswerCommand = new RelayCommand(OnShowAnswerCommandExecuted, CanShowAnswerCommandExecute);
         }
     }
 }

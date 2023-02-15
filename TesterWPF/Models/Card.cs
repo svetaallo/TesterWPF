@@ -31,6 +31,7 @@ namespace TesterWPF.Models
                     db.Add(this);
                     db.SaveChanges();
                 }
+                /*проверка на повторение карточки в бвзе*/
             }
         }
     }
