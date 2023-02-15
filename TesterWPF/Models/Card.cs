@@ -26,8 +26,11 @@ namespace TesterWPF.Models
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.Add(this);
-                db.SaveChanges();
+                if (Question?.Length > 0 && CorrectAnswer?.Length > 0)
+                {
+                    db.Add(this);
+                    db.SaveChanges();
+                }
             }
         }
     }

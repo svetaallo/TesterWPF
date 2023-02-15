@@ -13,9 +13,9 @@ namespace TesterWPF.ViewModels
         #region Commands
         public ICommand AddNewCardCommand { get; }
         #region AddNewCardCommand
-        public bool CanAddNewCardCommandExecute(object parametr) => true;
+        public bool CanAddNewCardCommandExecute(object parameter) => true;
 
-        public void OnAddNewCardCommandExecuted(object parametr)
+        public void OnAddNewCardCommandExecuted(object parameter)
         {
             var addedCard= new Card(Question, Answer);
             addedCard.SaveToBase();
