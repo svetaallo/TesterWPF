@@ -1,9 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TesterWPF.Models;
 
 namespace Tests
@@ -24,6 +18,31 @@ namespace Tests
         public void Test(int day, string expectetId)
         {
             Assert.AreEqual(expectetId, Session.GenerateQueueId(day));
+        }
+
+    }
+
+    [TestFixture]
+    public class DayGeneratorTests
+    {
+        [Test]
+        public void FirstDayOfYear()
+        {
+            DateTime date = new DateTime(2023,1,1);
+            Assert.AreEqual(0, Session.GetCurrentDay(date));
+        }
+        [Test]
+        public void ElevenJanuary()
+        {
+            DateTime date = new DateTime(2023, 1, 11);
+            Assert.AreEqual(0, Session.GetCurrentDay(date));
+        }
+
+        [Test]
+        public void Today()
+        {
+            DateTime date = DateTime.Today;
+            Assert.AreEqual(9, Session.GetCurrentDay(date));
         }
     }
 }
