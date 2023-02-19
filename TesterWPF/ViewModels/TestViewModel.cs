@@ -58,13 +58,14 @@ namespace TesterWPF.ViewModels
         #region Commands
         #region NextCardCommand
         public ICommand NextCardCommand { get; }
-        public bool CanNextCardCommandExecute(object parameter) => true;/*сюда прописать запрет на вызов команды, пока ответ не просмотрен*/
+        public bool CanNextCardCommandExecute(object parameter) => !IsQuestionHidden;
 
         public void OnNextCardCommandExecuted(object parameter)
         {
             /*вызов команды изменяющей ид карты в соответствии с ответом*/
             var x = parameter as TextBlock;
             x.Visibility = System.Windows.Visibility.Hidden;
+            IsQuestionHidden = true;
             if(Counter < SessionCards.Count)
                 CurrentCard = SessionCards[Counter++];
             else
@@ -80,12 +81,13 @@ namespace TesterWPF.ViewModels
 
         #endregion
         #region ShowAnswerCommand
-        public bool CanShowAnswerCommandExecute(object parameter) => true;/*сюда прописать запрет на вызов команды, пока ответ не просмотрен*/
+        public bool CanShowAnswerCommandExecute(object parameter) => true;
 
         public void OnShowAnswerCommandExecuted(object parameter)
         {
             var x = parameter as TextBlock;
             x.Visibility = System.Windows.Visibility.Visible;
+            IsQuestionHidden = false;
         }
         #endregion
         #endregion
